@@ -158,6 +158,8 @@ func (s storage) Search(ctx context.Context, username, sex *string, age *int) ([
 	return users, nil
 }
 
+// In production it should be done using some github.com/Masterminds/squirrel for ex.
+// Manual query building should die one day
 func buildSearchQuery(username, sex *string, age *int) string {
 	conditions := ""
 	if username != nil {
@@ -165,10 +167,16 @@ func buildSearchQuery(username, sex *string, age *int) string {
 	}
 
 	if sex != nil {
+		if len(conditions) != 0 {
+			conditions += " AND "
+		}
 		conditions += fmt.Sprintf("Sex = '%s'", *sex)
 	}
 
 	if age != nil {
+		if len(conditions) != 0 {
+			conditions += " AND "
+		}
 		from := time.Now().AddDate(-*age, 0, 0)
 		to := from.AddDate(1, 0, 0)
 		conditions += fmt.Sprintf("Birthdate BETWEEN '%s' AND '%s'", from, to)

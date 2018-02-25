@@ -19,7 +19,6 @@ type Storage interface {
 // apiHandler will handle all requests for /api path
 func UsersHandler(storage Storage, logger *logrus.Logger) chi.Router {
 	r := chi.NewRouter()
-	r.Use(middlewares.ContentType("application/json; charset=UTF-8"))
 
 	r.Mount("/users", objectsHandler(storage, logger))
 	return r
@@ -28,6 +27,7 @@ func UsersHandler(storage Storage, logger *logrus.Logger) chi.Router {
 // objectsHandler will handle all requests for /objects path
 func objectsHandler(storage Storage, logger *logrus.Logger) chi.Router {
 	r := chi.NewRouter()
+	r.Use(middlewares.ContentType("application/json; charset=UTF-8"))
 
 	HTTPHandler := handler{store: storage, logger: logger}
 

@@ -25,7 +25,7 @@ var (
 	DBHost          = flag.String("dbhost", "127.0.0.1", "MySQL host")
 	DBUser          = flag.String("dbuser", "root", "MySQL user")
 	DBPassword      = flag.String("dbpass", "root", "MySQL password")
-	shutdownTimeout = flag.Duration("s", 30, "Shutdown timeout")
+	shutdownTimeout = flag.Duration("shutdownTimeout", 30*time.Second, "Shutdown timeout")
 )
 
 func main() {
