@@ -2,7 +2,7 @@
 
 ## Run
 #### Clone repository
-    $ git clode https://github.com/8tomat8/yetAnotherCRUD.git
+    $ git clone https://github.com/8tomat8/yetAnotherCRUD.git
     
 #### Change dir
     $ cd ./yetAnotherCRUD
