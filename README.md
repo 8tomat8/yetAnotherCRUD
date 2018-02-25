@@ -38,15 +38,7 @@
 #### Run app
     $ ./yetAnotherCRUD
     INFO[0000] Starting listener on 0.0.0.0:8080
-    
-	DBPort          = flag.String("dbport", "3306", "MySQL port")
-	DBHost          = flag.String("dbhost", "127.0.0.1", "MySQL host")
-	DBUser          = flag.String("dbuser", "root", "MySQL user")
-	DBPassword      = flag.String("dbpass", "root", "MySQL password")
-	shutdownTimeout = flag.Duration("s", 30, "Shutdown timeout")
-	
-	
-	
+
 ## Test API
 #### Search users
     $ curl -vvv -X GET \
